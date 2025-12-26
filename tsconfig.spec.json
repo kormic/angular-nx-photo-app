@@ -3,7 +3,9 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "types": [
-      "jest"
+      "jest",
+      "node",
+      "@testing-library/jest-dom"
     ],
     "target": "ES2022"
   },

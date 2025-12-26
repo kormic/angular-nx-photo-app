@@ -1,19 +1,10 @@
-import { TestBed } from '@angular/core/testing';
+import { render, screen } from '@testing-library/angular';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  beforeEach(
-    async () =>
-      await TestBed.configureTestingModule({
-        imports: [AppComponent],
-      }).compileComponents(),
-  );
-
   it('should render title', async () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
+    await render(AppComponent);
 
-    expect(compiled.querySelector('h1')?.textContent).toContain('Photo Library');
+    expect(screen.getByRole('heading')).toHaveTextContent(/Photo Library/);
   });
 });

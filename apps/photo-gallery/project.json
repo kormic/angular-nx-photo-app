@@ -1,35 +1,30 @@
 {
   "$schema": "node_modules/nx/schemas/project-schema.json",
-  "name": "photo-library",
+  "name": "photo-gallery",
   "projectType": "application",
   "generators": {
     "@schematics/angular:component": {
       "style": "scss"
     }
   },
-  "sourceRoot": "src",
+  "root": "apps/photo-gallery",
+  "sourceRoot": "apps/photo-gallery/src",
   "prefix": "app",
   "targets": {
     "build": {
       "executor": "@angular/build:application",
       "options": {
         "outputPath": {
-          "base": "dist/photo-library"
+          "base": "apps/photo-gallery/dist/photo-gallery"
         },
-        "index": "src/index.html",
+        "index": "apps/photo-gallery/src/index.html",
         "polyfills": [],
-        "tsConfig": "tsconfig.app.json",
+        "tsConfig": "apps/photo-gallery/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": [
-          "src/favicon.ico",
-          "src/assets"
-        ],
-        "styles": [
-          "@angular/material/prebuilt-themes/indigo-pink.css",
-          "src/styles.scss"
-        ],
+        "assets": ["apps/photo-gallery/src/favicon.ico", "apps/photo-gallery/src/assets"],
+        "styles": ["@angular/material/prebuilt-themes/indigo-pink.css", "apps/photo-gallery/src/styles.scss"],
         "scripts": [],
-        "browser": "src/main.ts"
+        "browser": "apps/photo-gallery/src/main.ts"
       },
       "configurations": {
         "production": {
@@ -55,18 +50,16 @@
         }
       },
       "defaultConfiguration": "production",
-      "outputs": [
-        "{options.outputPath.base}"
-      ]
+      "outputs": ["{options.outputPath.base}"]
     },
     "serve": {
       "executor": "@angular/build:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "photo-library:build:production"
+          "buildTarget": "photo-gallery:build:production"
         },
         "development": {
-          "buildTarget": "photo-library:build:development"
+          "buildTarget": "photo-gallery:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -74,7 +67,7 @@
     "extract-i18n": {
       "executor": "@angular/build:extract-i18n",
       "options": {
-        "buildTarget": "photo-library:build"
+        "buildTarget": "photo-gallery:build"
       }
     },
     "test": {
@@ -88,14 +81,9 @@
     "lint": {
       "executor": "@angular-eslint/builder:lint",
       "options": {
-        "lintFilePatterns": [
-          "src/**/*.ts",
-          "src/**/*.html"
-        ]
+        "lintFilePatterns": ["apps/photo-gallery/src/**/*.ts", "apps/photo-gallery/src/**/*.html"]
       },
-      "outputs": [
-        "{options.outputFile}"
-      ]
+      "outputs": ["{options.outputFile}"]
     }
   }
 }

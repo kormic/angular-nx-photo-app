@@ -1,2 +1,6 @@
 <h1>{{ title }}</h1>
+<nav>
+  <a [routerLink]="'gallery'" routerLinkActive="active">Gallery</a>
+  <a [routerLink]="'favorites'" routerLinkActive="active">Favorites</a>
+</nav>
 <router-outlet></router-outlet>

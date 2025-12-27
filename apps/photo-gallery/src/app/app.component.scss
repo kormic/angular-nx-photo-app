@@ -1,0 +1,18 @@
+nav {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+
+  &:visited {
+    color: inherit;
+  }
+
+  &.active {
+    background: #2b7fff;
+    color: white;
+  }
+}

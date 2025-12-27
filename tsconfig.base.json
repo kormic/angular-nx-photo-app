@@ -11,7 +11,8 @@
     "lib": ["ES2022", "dom"],
     "baseUrl": "./",
     "paths": {
-      "@photo-library/gallery": ["libs/gallery/src/index.ts"]
+      "@photo-library/gallery": ["libs/gallery/src/index.ts"],
+      "@photo-library/favorites": ["libs/favorites/src/index.ts"]
     }
   }
 }

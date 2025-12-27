@@ -6,4 +6,8 @@ export const routes: Routes = [
     path: 'gallery',
     loadChildren: () => import('@photo-library/gallery').then((m) => m.GALLERY_ROUTES),
   },
+  {
+    path: 'favorites',
+    loadChildren: () => import('@photo-library/favorites').then((m) => m.FAVORITES_ROUTES),
+  },
 ];

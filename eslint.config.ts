@@ -16,6 +16,9 @@ module.exports = defineConfig([
       eslintPluginPrettierRecommended,
     ],
     processor: angular.processInlineTemplates,
+  },
+  {
+    files: ['apps/**/src/**/*.ts'],
     rules: {
       '@angular-eslint/directive-selector': [
         'error',
@@ -30,6 +33,27 @@ module.exports = defineConfig([
         {
           type: 'element',
           prefix: 'app',
+          style: 'kebab-case',
+        },
+      ],
+    },
+  },
+  {
+    files: ['libs/**/src/**/*.ts'],
+    rules: {
+      '@angular-eslint/directive-selector': [
+        'error',
+        {
+          type: 'attribute',
+          prefix: 'lib',
+          style: 'camelCase',
+        },
+      ],
+      '@angular-eslint/component-selector': [
+        'error',
+        {
+          type: 'element',
+          prefix: 'lib',
           style: 'kebab-case',
         },
       ],

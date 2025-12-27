@@ -4,7 +4,6 @@
   "compilerOptions": {
     "types": [
       "jest",
-      "node",
       "@testing-library/jest-dom"
     ],
     "target": "ES2022"

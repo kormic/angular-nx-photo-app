@@ -22,7 +22,7 @@
         "tsConfig": "apps/photo-gallery/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": ["apps/photo-gallery/src/favicon.ico", "apps/photo-gallery/src/assets"],
-        "styles": ["@angular/material/prebuilt-themes/indigo-pink.css", "apps/photo-gallery/src/styles.scss"],
+        "styles": ["@angular/material/prebuilt-themes/azure-blue.css", "apps/photo-gallery/src/styles.scss"],
         "scripts": [],
         "browser": "apps/photo-gallery/src/main.ts"
       },

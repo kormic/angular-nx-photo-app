@@ -12,7 +12,8 @@
     "baseUrl": "./",
     "paths": {
       "@photo-library/gallery": ["libs/gallery/src/index.ts"],
-      "@photo-library/favorites": ["libs/favorites/src/index.ts"]
+      "@photo-library/favorites": ["libs/favorites/src/index.ts"],
+      "@photo-library/shared": ["libs/shared/src/index.ts"]
     }
   }
 }

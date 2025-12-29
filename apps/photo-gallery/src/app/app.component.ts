@@ -9,6 +9,4 @@ import { HeaderComponent } from './components/header.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterOutlet, HeaderComponent],
 })
-export class AppComponent {
-  title = 'Photo Library';
-}
+export class AppComponent {}

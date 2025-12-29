@@ -1,0 +1,15 @@
+:host {
+  padding: 1em;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 1em;
+  z-index: 2;
+}
+
+.content {
+  // Styling for embedded features
+}

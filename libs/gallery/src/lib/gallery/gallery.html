@@ -1,1 +1,5 @@
-<p>Gallery works!</p>
+<mat-grid-list [cols]="gridColumns()" [gutterSize]="'20px'">
+  @for (photo of dummyPhotos; track photo) {
+  <mat-grid-tile><lib-photo-card /></mat-grid-tile>
+  }
+</mat-grid-list>

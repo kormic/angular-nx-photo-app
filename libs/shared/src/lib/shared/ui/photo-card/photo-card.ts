@@ -4,7 +4,13 @@ import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'lib-photo-card',
-  styles: ``,
+  styles: `
+    .example-card {
+      img {
+        width: 100%;
+      }
+    }
+  `,
   template: `
     <mat-card class="example-card" appearance="outlined">
       <img

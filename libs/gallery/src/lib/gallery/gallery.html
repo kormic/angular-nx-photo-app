@@ -1,5 +1,7 @@
 <mat-grid-list [cols]="gridColumns()" [gutterSize]="'20px'">
-  @for (photo of dummyPhotos; track photo) {
+  @for (photo of galleryVM().photos; track photo.id) {
   <mat-grid-tile><lib-photo-card /></mat-grid-tile>
+  } @empty {
+  <p>Sorry no photos available :(</p>
   }
 </mat-grid-list>

@@ -1,6 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { PhotoCard } from '@photo-library/shared';
+
+import { GalleryVMService } from './services/gallery-vm.service';
 import { GridService } from './services/grid.service';
 
 @Component({
@@ -8,14 +10,9 @@ import { GridService } from './services/grid.service';
   templateUrl: './gallery.html',
   styleUrl: './gallery.scss',
   imports: [MatGridListModule, PhotoCard],
-  providers: [GridService],
+  providers: [GridService, GalleryVMService],
 })
 export class Gallery {
   public readonly gridColumns = inject(GridService).gridColumns;
-
-  dummyPhotos = [
-    { text: 'One', cols: 1, rows: 1, color: 'lightblue' },
-    { text: 'Two', cols: 1, rows: 1, color: 'lightgreen' },
-    { text: 'Three', cols: 1, rows: 1, color: 'lightpink' },
-  ];
+  public readonly galleryVM = inject(GalleryVMService).state;
 }

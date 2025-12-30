@@ -8,6 +8,7 @@ export class PicsumService {
   private readonly http = inject(HttpClient);
 
   getListOfPhotos(page: number, limit: number) {
+    // TODO: get the url from a config
     return this.http.get<PicsumPhotoDTO[]>(`https://picsum.photos/v2/list?page=${page}&limit=${limit}`).pipe(
       map((picsumPhotos) => picsumPhotos.map(mapPicsumPhotoToPhoto)),
       catchError((error) => {

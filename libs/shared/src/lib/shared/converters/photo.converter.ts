@@ -4,7 +4,8 @@ import { Photo } from '../models';
 export const mapPicsumPhotoToPhoto = (picsumPhoto: PicsumPhotoDTO): Photo => {
   return {
     id: picsumPhoto.id,
-    url: new URL(picsumPhoto.url),
+    author: picsumPhoto.author,
+    url: new URL(picsumPhoto.download_url),
     height: picsumPhoto.height,
     width: picsumPhoto.width,
   };

@@ -5,8 +5,8 @@ import { map } from 'rxjs';
 
 const GRID_LAYOUT = {
   [Breakpoints.XSmall]: 1,
-  [Breakpoints.Small]: 1,
-  [Breakpoints.Medium]: 3,
+  [Breakpoints.Small]: 2,
+  [Breakpoints.Medium]: 2,
   [Breakpoints.Large]: 3,
   [Breakpoints.XLarge]: 3,
 } as const;

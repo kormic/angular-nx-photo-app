@@ -1,3 +1,3 @@
 import { PicsumPhotoDTO } from '../dtos/picsum-photo';
 
-export type Photo = Pick<PicsumPhotoDTO, 'id' | 'height' | 'width'> & { url: URL };
+export type Photo = Pick<PicsumPhotoDTO, 'id' | 'author' | 'height' | 'width'> & { url: URL };

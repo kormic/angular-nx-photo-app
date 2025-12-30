@@ -19,11 +19,11 @@ import { MatButtonModule } from '@angular/material/button';
   `,
   template: `
     <nav aria-label="Primary navigation">
-      <a matFab extended routerLink="gallery" routerLinkActive="active">
+      <a matFab extended routerLink="gallery" routerLinkActive="active" queryParamsHandling="merge">
         <mat-icon color="accent">home</mat-icon>
         Gallery
       </a>
-      <a matFab extended routerLink="favorites" routerLinkActive="active">
+      <a matFab extended routerLink="favorites" routerLinkActive="active" queryParamsHandling="merge">
         <mat-icon color="accent">favorite</mat-icon>
         Favorites
       </a>

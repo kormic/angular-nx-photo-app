@@ -1,8 +1,24 @@
-import { ApplicationConfig, provideZonelessChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
-import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
+import { ApplicationConfig, isDevMode, provideZonelessChangeDetection } from '@angular/core';
+import { provideRouter, withInMemoryScrolling } from '@angular/router';
+import { provideEffects } from '@ngrx/effects';
+import { provideStore } from '@ngrx/store';
+import { provideStoreDevtools } from '@ngrx/store-devtools';
+
+import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZonelessChangeDetection(), provideRouter(routes), provideHttpClient()],
+  providers: [
+    provideZonelessChangeDetection(),
+    provideRouter(
+      routes,
+      withInMemoryScrolling({
+        scrollPositionRestoration: 'enabled',
+      }),
+    ),
+    provideHttpClient(),
+    provideStore(),
+    provideEffects(),
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+  ],
 };

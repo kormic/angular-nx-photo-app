@@ -1,1 +1,2 @@
-export { PhotoCard } from './photo-card/photo-card';
+export * from './photo-card';
+export * from './gallery-grid';

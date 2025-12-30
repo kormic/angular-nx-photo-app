@@ -1,13 +1,7 @@
-<mat-grid-list [cols]="gridColumns()" [gutterSize]="'20px'">
-  @for (photo of galleryVM.state().photos; track photo.id) {
-  <mat-grid-tile><lib-photo-card [photo]="photo" /></mat-grid-tile>
-  } @if (galleryVM.state().photos.length === 0 && !galleryVM.state().loading) {
-  <p>Sorry no photos available :(</p>
+<lib-gallery-grid [photos]="galleryVM.state().photos">
+  @if (galleryVM.state().loading) {
+  <div>Loading...</div>
   }
-</mat-grid-list>
-
-@if (galleryVM.state().loading) {
-<div>Loading...</div>
-}
+</lib-gallery-grid>
 
 <div libUiInfiniteSentinel [preventEmissionOnFirstLoad]="true" (visible)="loadNextPage()" class="sentinel"></div>

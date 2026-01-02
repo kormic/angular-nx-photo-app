@@ -1,5 +1,5 @@
-import { of } from 'rxjs';
-import { catchError, map, switchMap } from 'rxjs/operators';
+import { from, of } from 'rxjs';
+import { catchError, concatMap, map, switchMap } from 'rxjs/operators';
 
 import { inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
@@ -8,7 +8,7 @@ import { concatLatestFrom } from '@ngrx/operators';
 import { PicsumService } from '@photo-library/core';
 
 import * as PhotosActions from './photos.actions';
-import { selectIsPageLoaded } from './photos.selectors';
+import { selectMissingPages } from './photos.selectors';
 import { Store } from '@ngrx/store';
 
 @Injectable()
@@ -20,13 +20,18 @@ export class PhotosEffects {
   loadPhotos$ = createEffect(() =>
     this.actions$.pipe(
       ofType(PhotosActions.loadPhotos),
-      concatLatestFrom(({ page }) => this.store.select(selectIsPageLoaded(page))),
-      switchMap(([{ page, limit }, loaded]) => {
-        if (loaded) {
+      concatLatestFrom(({ page }) => this.store.select(selectMissingPages(page))),
+      switchMap(([{ limit }, missingPages]) => {
+        if (missingPages.length === 0) {
           return of(PhotosActions.loadPhotosFromCache());
         }
-        return this.api.getListOfPhotos(page, limit).pipe(
-          map((photos) => PhotosActions.loadPhotosSuccess({ photos, page })),
+
+        return from(missingPages).pipe(
+          concatMap((missingPage) =>
+            this.api
+              .getListOfPhotos(missingPage, limit)
+              .pipe(map((photos) => PhotosActions.loadPhotosSuccess({ photos, page: missingPage, limit }))),
+          ),
           catchError((error) => of(PhotosActions.loadPhotosFailure({ error }))),
         );
       }),

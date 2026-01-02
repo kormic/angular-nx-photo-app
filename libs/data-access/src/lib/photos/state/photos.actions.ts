@@ -5,6 +5,6 @@ export const loadPhotos = createAction('[Photos] Load Photos', props<{ page: num
 export const loadPhotosFromCache = createAction('[Photos] Load Photos from cache');
 export const loadPhotosSuccess = createAction(
   '[Photos] Load Photos Success',
-  props<{ photos: Photo[]; page: number }>(),
+  props<{ photos: Photo[]; page: number; limit: number }>(),
 );
 export const loadPhotosFailure = createAction('[Photos] Load Photos Failure', props<{ error: unknown }>());

@@ -1,7 +1,7 @@
-import { Photo } from '@photo-library/shared';
+import { PhotoWithFavorite } from '@photo-library/shared';
 
 export interface GalleryViewModel {
-  photos: Photo[];
+  photos: PhotoWithFavorite[];
   page: number;
   limit: number;
   loading: boolean;

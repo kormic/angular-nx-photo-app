@@ -1,17 +1,25 @@
-import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input, output } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { PhotoCard } from '@photo-library/shared';
-import { Photo } from '@photo-library/shared';
+import { Photo, PhotoCard, PhotoWithFavorite } from '@photo-library/shared';
+
 import { GridService } from './grid.service';
 
 @Component({
   selector: 'lib-gallery-grid',
   template: `
     <mat-grid-list [cols]="gridColumns()" [gutterSize]="'20px'">
-      @for (photo of photos; track photo.id) {
-        <mat-grid-tile><lib-photo-card [photo]="photo" /></mat-grid-tile>
+      @for (photo of photos(); track photo.id) {
+        <mat-grid-tile
+          ><lib-photo-card
+            [photo]="photo"
+            [showActions]="canToggleFavorites()"
+            [isFavorite]="photo.isFavorite"
+            (toggleFavoriteEvent)="toggleFavorite($event)"
+        /></mat-grid-tile>
       }
-      <ng-content />
+      <mat-grid-tile-footer>
+        <ng-content />
+      </mat-grid-tile-footer>
     </mat-grid-list>
   `,
   styles: `
@@ -28,6 +36,12 @@ import { GridService } from './grid.service';
   providers: [GridService],
 })
 export class GalleryGrid {
-  @Input() public photos: Photo[] = [];
+  public readonly photos = input.required<PhotoWithFavorite[]>();
+  public readonly canToggleFavorites = input.required<boolean>();
+  public readonly toggleFavoriteEvent = output<Photo>();
   public readonly gridColumns = inject(GridService).gridColumns;
+
+  toggleFavorite(photo: Photo) {
+    this.toggleFavoriteEvent.emit(photo);
+  }
 }

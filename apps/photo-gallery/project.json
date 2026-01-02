@@ -28,6 +28,10 @@
       },
       "configurations": {
         "production": {
+          "fileReplacements": {
+            "replace": "apps/photo-gallery/src/environments/environment.ts",
+            "with": "apps/photo-gallery/src/environments/environment.prod.ts"
+          },
           "budgets": [
             {
               "type": "initial",

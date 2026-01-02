@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { InfiniteSentinelDirective, GalleryGrid } from '@photo-library/shared';
+import { GalleryGrid, InfiniteSentinelDirective, SpinnerComponent, BoxComponent } from '@photo-library/shared';
 
 import { GalleryVMService } from './services/gallery-vm.service';
 
@@ -7,7 +7,7 @@ import { GalleryVMService } from './services/gallery-vm.service';
   selector: 'lib-gallery',
   templateUrl: './gallery.html',
   styleUrl: './gallery.scss',
-  imports: [InfiniteSentinelDirective, GalleryGrid],
+  imports: [InfiniteSentinelDirective, GalleryGrid, SpinnerComponent, BoxComponent],
   providers: [GalleryVMService],
 })
 export class Gallery {

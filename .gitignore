@@ -2,9 +2,11 @@
 
 # Compiled output
 /dist
+**/dist/
 /tmp
 /out-tsc
 /bazel-out
+**/dist
 
 # Node
 /node_modules
@@ -40,3 +42,9 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+
+
+.nx/cache
+.nx/workspace-data
+.angular

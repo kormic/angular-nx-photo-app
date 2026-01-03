@@ -1,5 +1,5 @@
 @if (favoritesVM.state().favorites.length > 0) {
-<lib-gallery-grid [photos]="favoritesVM.state().favorites" [canToggleFavorites]="false" />
+  <lib-gallery-grid [photos]="favoritesVM.state().favorites" [canToggleFavorites]="false" />
 } @else {
-<p>You can set favorite photos in the <a routerLink="/gallery">gallery </a>page!</p>
+  <p>You can set favorite photos in the <a routerLink="/gallery">gallery </a>page!</p>
 }

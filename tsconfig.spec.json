@@ -2,14 +2,8 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "types": [
-      "jest",
-      "@testing-library/jest-dom"
-    ],
+    "types": ["jest", "@testing-library/jest-dom"],
     "target": "ES2022"
   },
-  "include": [
-    "src/**/*.spec.ts",
-    "src/**/*.d.ts"
-  ]
+  "include": ["src/**/*.spec.ts", "src/**/*.d.ts"]
 }

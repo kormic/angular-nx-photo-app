@@ -4,13 +4,15 @@
   (toggleFavoriteEvent)="galleryVM.toggleIsFavorite($event)">
 </lib-gallery-grid>
 @if (galleryVM.state().photos.length === 0 && !galleryVM.state().loading) {
-<lib-box> No photos available 😔</lib-box>
-} @if(galleryVM.state().photos.length > 0 && !galleryVM.state().hasMore && !galleryVM.state().loading) {
-<lib-box> End of line... 😔</lib-box>
-} @if (galleryVM.state().loading) {
-<div class="spinner">
-  <lib-spinner />
-</div>
+  <lib-box> No photos available 😔</lib-box>
+}
+@if (galleryVM.state().photos.length > 0 && !galleryVM.state().hasMore && !galleryVM.state().loading) {
+  <lib-box> End of line... 😔</lib-box>
+}
+@if (galleryVM.state().loading) {
+  <div class="spinner">
+    <lib-spinner />
+  </div>
 }
 
 <div libUiInfiniteSentinel [preventEmissionOnFirstLoad]="true" (visible)="loadNextPage()" class="sentinel"></div>
